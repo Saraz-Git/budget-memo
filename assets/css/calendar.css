@@ -1,0 +1,65 @@
+body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*--------------------------------*/
+#calendar {
+    width: 700px;
+    min-width: 700px;
+    float: left;
+}
+
+.weekday-title {
+    width: 100px;
+    height: 30px;
+}
+
+.day {
+    width: 100px;
+    height: 100px;
+    border: 0.5px solid black;
+
+}
+
+#todayCube {
+    background-color: bisque;
+}
+
+.actual:hover {
+    background-color: #ffc107;
+}
+
+#todayCube:hover {
+    background-color: #ffc107;
+}
+
+.logRecord {
+    font-size: 8px;
+    background-color: lavender;
+    width: 76px;
+    z-index: 6;
+    position: relative;
+    left: 20px;
+    top: -22px;
+    padding-left: 5px;
+    border-radius: 5px;
+    display: none;
+}
+
+.logDivBtn {
+    position: relative;
+    left: 60px;
+    display: inline;
+}
+
+#day-display {
+    font-size: 96px;
+}
+
+#modal-test {
+    display: none;
+}
+
+/*-----------------------------*/

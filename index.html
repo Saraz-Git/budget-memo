@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Memo</title>
+    <!--Bulma-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!--jQuery ui stylesheet-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <!--our own stylesheet-->
+    <link rel="stylesheet" href="./assets/css/landing.css">
+</head>
+
+<body class="has-background-warning">
+
+    <main class="columns is-mobile is-centered has-text-centered p-6">
+        <div class="column is-9 has-background-white" id="main-container">
+            <h1 class="title is-1 my-6 has-text-grey-darker" id="date-header"></h1>
+            <h2 class="title is-2 my-6 has-text-grey-darker" id="holiday"></h2>
+            <div class="container my-6">
+
+                <!--Create a button to open modal-->
+                <div class="my-6 ">
+                    <button class="button is-link is-large js-modal-trigger mx-2" id="add-task-btn"
+                        data-target="modal-container">Add Expenses</button>
+                    <button class="button is-link is-light has-text-link-light-invert is-large mx-2"
+                        id="visit-calendar">Visit
+                        Calendar</button>
+                </div>
+
+                <div class="fixed-grid has-3-cols">
+                    <div id="weather-container" class="grid">
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Temperature</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="temp-data"></div>
+                        </div>
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Wind</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="wind-data"></div>
+                        </div>
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Humidity</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="humidity-data"></div>
+                        </div>
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Feels Like</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="feels-like-data"></div>
+                        </div>
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Chance of Rain</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="rain-data"></div>
+                        </div>
+                        <div class="my-2">
+                            <h3 class="title is-3 has-text-grey-darker">Condition</h3>
+                            <div class="weather-icon title is-4 has-text-link" id="conditions"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <!--------------------------Bulma Modal------------------------------------->
+    <div id="modal-container" class="modal">
+        <div class="modal-background" id="modal-background-test"></div>
+        <div id="modalBody" class="modal-content has-background-white box mt-6 p-6">
+            <button id="exitBtnTest" class="button is-link is-light is-pulled-right mb-5">Cancel</button>
+            <form id="form">
+
+                <div class="field">
+                    <label id="modalHeader" class="label">Date</label>
+                    <p id="modalDateArea"></p>
+                </div>
+
+                <div class="field">
+                    <label class="label">Category</label>
+                    <div class="control">
+                        <div class="select is-fullwidth is-info">
+                            <select id="expense-select">
+                                <option>Food</option>
+                                <option>Utilities</option>
+                                <option>Housing</option>
+                                <option>Travel</option>
+                                <option>Entertainment</option>
+                                <option>Grocery</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Amount</label>
+                    <div class="control">
+                        <input id="value-input" class="input is-fullwidth" type="text" placeholder="$">
+                    </div>
+                </div>
+
+                <button id="saveBtn" class="button is-link mt-5">Add Log</button>
+            </form>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!--------------------------This Line above is the hidden modal------->
+
+
+    <footer class="footer has-text-centered has-background-warning">
+        <h4 class="title is-4 is-italic has-text-grey-darker mt-auto">Made with ❤️ by The Code Crew</h4>
+    </footer>
+
+    <!--jQuery JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--jQuery ui JavaScript-->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/4ca36e5657.js" crossorigin="anonymous"></script>
+    <!--Dayjs JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <!--our own JavaScript-->
+    <script src="./assets/js/logic.js"></script>
+    <script src="./assets/js/landing.js"></script>
+</body>
+
+</html>
